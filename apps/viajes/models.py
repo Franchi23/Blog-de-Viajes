@@ -15,5 +15,5 @@ class Viaje(models.Model):
         return self.titulo
     
     class Meta:
-        ordering = ['-titulo','-destino',]
+        ordering = ['titulo','destino','-fecha_viaje']
         verbose_name_plural = "Viajes"

@@ -9,7 +9,7 @@ class Continente(models.Model):
         return self.nombre
     
     class Meta:
-        ordering = ['-continente',]
+        ordering = ['nombre',]
         verbose_name_plural = "Continentes"
 
 #----------------- PAIS -----------------------------------------
@@ -18,10 +18,10 @@ class Pais(models.Model):
     continente = models.ForeignKey(Continente, on_delete=models.CASCADE, related_name='paises')  # con related_name puedo acceder a los países desde un continente: continente.paises.all()
 
     def __str__(self):
-        return f"{self.pais} - {self.continente}"
+        return self.pais
     
     class Meta:
-        ordering = ['-pais',]
+        ordering = ['pais',]
         verbose_name_plural = "Paises"
 
 #----------------- LUGAR -----------------------------------------
@@ -33,5 +33,5 @@ class Destino(models.Model):
         return f"{self.destino} - {self.pais}"
     
     class Meta:
-        ordering = ['-pais','-destino',]
+        ordering = ['pais','destino',]
         verbose_name_plural = "Destinos"
