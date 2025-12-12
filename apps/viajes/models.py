@@ -8,7 +8,7 @@ class Viaje(models.Model):
     descripcion = models.TextField()
     imagen = models.ImageField(null=True, blank=True, upload_to='viajes', default='viajes/default.png')
     destino = models.ForeignKey(Destino, on_delete=models.SET_NULL, null=True)
-    fecha_viaje = models.DateTimeField('Fecha Viaje',auto_now_add=True)
+    fecha_viaje = models.DateTimeField('Fecha Viaje')
     publicacion = models.DateTimeField('Fecha Publicacion',blank=True, null=True)
 
     def __str__(self):

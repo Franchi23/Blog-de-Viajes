@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navegacion %}
+{% include 'navegacion.html' %}
+{% endblock %}
+
+{% block contenido %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+    <div class="card shadow-lg border-0" style="width: 420px;">
+        <div class="card-body">
+
+            <h3 class="text-center fw-bold mb-3" style="font-family: 'Poppins', sans-serif;">
+                Agregar Continente
+            </h3>
+
+            <p class="text-center text-muted mb-4">
+                Complete los datos y presione <strong>Guardar</strong> para crear una nuevo Continente.
+            </p>
+
+            <form method="POST" enctype="multipart/form-data" class="text-start">
+                {% csrf_token %}
+                
+                <!-- Render automático del form -->
+                <div class="mb-3">
+                    {{ form.as_p }}
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success fw-semibold shadow-sm">
+                        Guardar
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
