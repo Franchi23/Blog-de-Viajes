@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
 
+from apps.comentarios.forms import ComentarioForm
 from apps.destinos.models import Pais,Destino,Continente
 from apps.viajes.models import Viaje
 from apps.comentarios.models import Comentario
@@ -22,13 +23,13 @@ class ActualizarViaje(UpdateView):
 
 class EliminarViaje(DeleteView):
     model = Viaje
-    template_name= 'viajes/confirma_eliminar.html'
+    template_name= 'genericos/confirma_eliminar.html'
     success_url = reverse_lazy('index')
 
 class ListarViajes(ListView):
     model = Viaje
     template_name= 'viajes/listar_viajes.html'
-    context_object_name ="viajes"
+    context_object_name ="viaje"
     paginate_by = 4
 
     def get_context_data(self):
@@ -88,24 +89,23 @@ def ordenar_por(request):
     return render(request, template_name, context)
 
 def leer_viaje(request, id):
-    pass
-#     viaje = Viaje.objects.get(id = id)
-#     comentario = Comentario.objects.filter(post = id)
-#     form = ComentarioForm(request.POST)
+     viaje = Viaje.objects.get(id = id)
+     comentario = Comentario.objects.filter(post = id)
+     form = ComentarioForm(request.POST)
 
-#     if form.is_valid():
-#         if request.user.is_authenticated:
-#             aux = form.save(commit=False)
-#             aux.viaje = viaje
-#             aux.usuario = request.user
-#             aux.save()
-#             form = ComentarioForm()
-#         else:
-#             return redirect("apps.usuarios:iniciar_sesion")
-#     template_name = "viajes/viaje.html"
-#     context = {
-#         "viaje" : viaje,
-#         "form" : form,
-#         "comentario" : comentario
-#     }
-#     return render(request, template_name, context)
+     if form.is_valid():
+         if request.user.is_authenticated:
+             aux = form.save(commit=False)
+             aux.viaje = viaje
+             aux.usuario = request.user
+             aux.save()
+             form = ComentarioForm()
+         else:
+             return redirect("apps.usuarios:iniciar_sesion")
+     template_name = "viajes/viaje.html"
+     context = {
+         "viaje" : viaje,
+         "form" : form,
+         "comentario" : comentario
+     }
+     return render(request, template_name, context)

@@ -26,7 +26,7 @@
         <button class="btn-primary" name="orden" type="submit" value="destino">Ordenar por
             Destino</button>
     </form>
-    {% if posts %}
+    {% if viaje %}
     <div class="container-fluid" style="margin-top: 2%">
         <div class="mbr-section-head">
             <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2" style="text-align: center;">
@@ -34,7 +34,7 @@
             </h3>
         </div>
         <div class="row" style="margin-bottom: 2%;">
-            {% for v in viajes %}
+            {% for v in viaje %}
 
             <div class="col-md-4 mb-3">
                 <div class="card" style="text-align: center;">
@@ -50,8 +50,7 @@
                         <li class="list-group-item">Destino: {{v.destino}}</li>
                     </ul>
                     <div class="card-body">
-                        <p><a href="{% url 'apps.viajes:viajes' p.id %}" class="btn btn-primary" style="font-size: small;">Leer
-                                más</a>
+                        <p><a href="{% url 'apps.viajes:viaje' v.id %}" class="btn btn-primary" style="font-size: small;">Leer más</a> 
                     </div>
                 </div>
             </div>
