@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'apps.destinos',
     'apps.usuarios',
     'apps.viajes',
+    'apps.contacto',
 ]
 
 MIDDLEWARE = [
