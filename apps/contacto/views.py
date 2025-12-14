@@ -20,3 +20,6 @@ class ContactoForm(CreateView):
     def form_valid(self,form):
         messages.success(self.request,'Consulta Enviada')
         return super().form_valid(form)
+
+def acerca_view(request):
+    return render(request, 'contacto/acerca_de.html')

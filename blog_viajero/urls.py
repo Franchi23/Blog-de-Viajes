@@ -29,7 +29,7 @@ urlpatterns = [
     path('comentarios/',include('apps.comentarios.urls')),
     path('usuarios/', include('apps.usuarios.urls')),
     path('destinos/',include('apps.destinos.urls')),
-    path('',include('django.contrib.auth.urls')),
+    path('',include('django.contrib.auth.urls')),       #para el usuario, para el cerrar sesion?
     path('contacto/',include('apps.contacto.urls')),
 ]
 
