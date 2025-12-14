@@ -1,0 +1,32 @@
+{% for item in comentarios %}
+{% if user.is_authenticated and user.id == item.usuario.id %}
+<div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Coementar
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="{% url 'apps.comentarios:modificar_comentario' item.pk %}">Modificar
+                comentario</a></li>
+        <li><a class="dropdown-item" href="{% url 'apps.comentarios:eliminar_comentario' item.pk %}">Eliminar
+                comentario</a></li>
+    </ul>
+</div>
+{% endif %}
+<div class="row justify-content-md-center ">
+    <div class="col-md-6">
+        <div class="list-group-item d-flex gap-3 py-3" aria-current="true">
+            <img src="{{ item.usuario.imagen.url }}" style="width:10%; height: 10%;" alt="twbs" width="40" height="40"
+                class="rounded-circle flex-shrink-0">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+                <div>
+                    <h6 class="mb-0">{{ item.usuario.username }}</h6>
+                    <p class="mb-0 text-break opacity-75">{{ item.comentario }}</p>
+                </div>
+                <small class="opacity-50 text-nowrap">{{ item.fecha }}</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endfor %}

@@ -29,13 +29,13 @@ class EliminarViaje(DeleteView):
 class ListarViajes(ListView):
     model = Viaje
     template_name= 'viajes/listar_viajes.html'
-    context_object_name ="viaje"
+    context_object_name ="viajes"
     paginate_by = 4
 
     def get_context_data(self):
         context = super().get_context_data()
-        viaje = Viaje.objects.all()
-        context["viaje"] = viaje
+        destino = Destino.objects.all()
+        context["destino"] = destino
         return context
     
     def get_queryset(self):
@@ -47,42 +47,47 @@ class ListarViajes(ListView):
 
         return queryset.order_by('titulo')
 
-def listar_viaje_por_destino(request, destino_buscado):
-    destino_filtrado= Destino.objects.filter(destino = destino_buscado)
-    viaje = Viaje.objects.filter(pais = destino_filtrado[0].id ).order_by('fecha_viaje')
-    destino_buscado = Pais.objects.all()
+def listar_por_destino(request, destino):
+    destino_filtrado= Destino.objects.filter(destino = destino)
+    viaje = Viaje.objects.filter(destino = destino_filtrado[0].id ).order_by('fecha_viaje')
+    destino = Destino.objects.all()
     template_name = "viajes/listar_viajes.html"
     context = {
         'viaje' : viaje,
-        'destino' : destino_buscado
+        'destino' : destino
     }
     return render(request, template_name, context)
 
-def listar_viaje_por_pais(request, pais_buscado):
-    pais_filtrado= Pais.objects.filter(pais = pais_buscado)
-    viaje = Viaje.objects.filter(pais = pais_filtrado[0].id ).order_by('fecha_viaje')
-    pais_buscado = Pais.objects.all()
+#Ver esto que es un filtro de un filtro ????
+#Busco los destinos del pais filtrado y los devuelvo?????
+def listar_por_pais(request, pais):
+    pais_filtrado= Pais.objects.filter(pais = pais)
+    destino_filtrado = Destino.objects.filter(pais = pais_filtrado[0].index)
+    viaje = Viaje.objects.filter(destino = destino_filtrado[0].id ).order_by('fecha_viaje')
+    pais = Pais.objects.all()
+    destinos = Destino.objects.all()
     template_name = "viajes/listar_viajes.html"
     context = {
         'viaje' : viaje,
-        'pais' : pais_buscado
+        'pais' : pais,
+        'destino': destinos
     }
     return render(request, template_name, context)
 
 def ordenar_por(request):
     orden = request.GET.get('orden','')
 
-    if orden == "Fecha":
-        viaje = Viaje.objects.order_by('fecha_viaje')
-    elif orden == "Viaje":
-        viaje = Viaje.objects.order_by('titulo')
-    elif orden == "Destino":
-        viaje = Viaje.objects.order_by('destino')
+    if orden == "fecha":
+        viajes = Viaje.objects.order_by('publicacion')
+    elif orden == "titulo":
+        viajes = Viaje.objects.order_by('titulo')
+    elif orden == "destino":
+        viajes = Viaje.objects.order_by('destino')
     else:
-        viaje = Viaje.objects.all()
+        viajes = Viaje.objects.all()
 
     context ={
-        "viaje" : viaje 
+        "viajes" : viajes 
     }
     template_name = "viajes/listar_viajes.html"
 
@@ -90,7 +95,7 @@ def ordenar_por(request):
 
 def leer_viaje(request, id):
      viaje = Viaje.objects.get(id = id)
-     comentario = Comentario.objects.filter(post = id)
+     comentario = Comentario.objects.filter(viaje = id)
      form = ComentarioForm(request.POST)
 
      if form.is_valid():
@@ -102,7 +107,7 @@ def leer_viaje(request, id):
              form = ComentarioForm()
          else:
              return redirect("apps.usuarios:iniciar_sesion")
-     template_name = "viajes/viaje.html"
+     template_name = "viajes/viajes.html"
      context = {
          "viaje" : viaje,
          "form" : form,

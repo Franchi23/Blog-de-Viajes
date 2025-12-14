@@ -2,77 +2,79 @@
 {% load static %}
 
 {% block titulo %}
-    <title>INCIO</title>
+<title>Inicio | Blog de viajes Franchi</title>
 {% endblock %}
+
 {% block navegacion %}
-    {% include 'navegacion.html' %}
+{% include 'navegacion.html' %}
 {% endblock %}
 
 {% block contenido %}
+<header class="position-relative">
+    <div class="imagen">
+        <img src="{% static 'img/fondo2.jpg' %}" class="img-fluid w-100"
+        style="max-height: 60vh; object-fit: cover; filter: brightness(60%);">
+    </div>
+    
 
-    <header class="position-relative">
-        <img src="{% static 'img/fondo3.jpg' %}" class="img-fluid w-100"
-            style="max-height: 60vh; object-fit: cover; filter: brightness(60%);">
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
+        <h1 class="fw-bold display-6" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.7);">
+            ¡Comparte tus experiencias de viaje junto a las mias!
+        </h1>
+        <p class="lead mt-3" style="max-width: 700px; margin: auto;">
+           ¡Embárcate en la aventura de tu vida y descubre los secretos mejor guardados de cada 
+            destino! Deja que tus curiosidades te lleven a lugares inesperados, donde las sorpresas 
+            están a la vuelta de la esquina y cada travesía es una nueva historia por escribir.
+            Comparte tus experiencias con los lugares a los que he ido y revivamos juntos esos 
+            monentos maravillosos. 
+            A ello....!!!!!!
+        </p>
 
-        <div class="position-absolute top-50 start-50 translate-middle text-center text-white">
-            <h1 class="fw-bold display-6" style="text-shadow: 2px 2px 10px rgba(0,0,0,0.7);">
-                ¡Comparte tus experiencias de viaje junto a las mias!
-            </h1>
-            <p class="lead mt-3" style="max-width: 700px; margin: auto;">
-                ¡Embárcate en la aventura de tu vida y descubre los secretos mejor guardados de cada 
-                destino! Deja que tus curiosidades te lleven a lugares inesperados, donde las sorpresas 
-                están a la vuelta de la esquina y cada travesía es una nueva historia por escribir.
-                Comparte tus experiencias con los lugares a los que he ido y revivamos juntos esos 
-                monentos maravillosos
-            </p>
-            <a href="" class="btn btn-warning mt-4 px-4 py-2 fs-5 fw-semibold shadow">
-                Crear cuenta
-            </a>
-        </div>
-    </header>
+    </div>
+</header>
 
-    <section class="mt-5">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-4" style="font-family: 'Poppins', sans-serif;">
-                Vajes
-            </h2>
+<section class="mt-5">
+    <div class="container">
+        <h2 class="text-center fw-bold mb-4" style="font-family: 'Poppins', sans-serif;">
+            Viajes Destacados
+        </h2>
 
-            <div id="carouselExampleIndicators" class="carousel slide carousel-fade shadow-lg mb-5"
-                style="border-radius: 12px; overflow: hidden;">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade shadow-lg mb-5"
+            style="border-radius: 12px; overflow: hidden;">
 
-                <div class="carousel-inner" style="height: 70vh;">
-                    <div class="carousel-item active">
-                        <img src="{% static 'img/fondo2.jpg' %}" class="d-block w-100 h-100"
-                            style="object-fit: cover;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static 'img/fondo4.jpg' %}" class="d-block w-100 h-100"
-                            style="object-fit: cover;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="{% static 'img/fondo3.jpg' %}" class="d-block w-100 h-100"
-                            style="object-fit: cover;">
-                    </div>
+            <div class="carousel-inner" style="height: 70vh;">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/img_slides/receta_1.jfif' %}" class="d-block w-100 h-100"
+                        style="object-fit: cover;">
                 </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
-
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+                <div class="carousel-item">
+                    <img src="{% static 'img/img_slides/receta_2.jfif' %}" class="d-block w-100 h-100"
+                        style="object-fit: cover;">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/img_slides/receta_3.jfif' %}" class="d-block w-100 h-100"
+                        style="object-fit: cover;">
                 </div>
             </div>
 
-        </div>
-    </section>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
 
-{% endblock%}
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                    class="active"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
