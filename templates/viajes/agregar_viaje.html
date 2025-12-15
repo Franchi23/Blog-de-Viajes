@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navegacion %}
+{% include 'navegacion.html' %}
+{% endblock %}
+
+{% block contenido %}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 75vh;">
+    <div class="card shadow-lg border-0" style="width: 600px;">
+        <div class="card-body">
+
+            <h3 class="text-center fw-bold mb-3" style="font-family: 'Poppins', sans-serif;">
+                Agregar Viaje
+            </h3>
+
+            <p class="text-center text-muted mb-4">
+                Complete los campos y presione <strong>Guardar receta</strong>.
+                Luego podrá visualizarla en la sección <em>Viajes</em>.
+            </p>
+
+            <form action="" method="POST" enctype="multipart/form-data" class="text-start">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    {{ form.as_p }}
+                    {{ form.media }}
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success fw-semibold shadow-sm">
+                        Guardar Viaje
+                    </button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% if viaje_guardado %}
+<!-- MODAL ÉXITO -->
+<div class="modal fade show" id="modalRecetaOK" tabindex="-1" aria-modal="true" role="dialog" style="display:block;">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title">Viaje cargado</h5>
+      </div>
+      <div class="modal-body text-center">
+        ¡Su experiencia fue cargada con éxito! 🎉
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <a class="btn btn-secondary" href="{% url 'index' %}">Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}

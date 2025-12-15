@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block navegacion %}
+{% include 'navegacion.html' %}
+{% endblock %}
+
+{% block titulo %}
+<title>Cerrar sesión</title>
+{% endblock %}
+
+{% block contenido %}
+
+<center>
+    <div class="container" style="margin-top: 370px;">
+        <div class="messages">
+            {% for message in messages %}
+                <table{% if message.tags %} class="{{message.tags}}"{%endif%}>{{message}}</table>
+        </div>
+    </div>
+</center>
+
+{% endblock %}

@@ -29,9 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-#AUTH_USER_MODEL = "usuarios.Usuario"
+AUTH_USER_MODEL = "usuarios.Usuario"
 
-#LOGIN_URL = reverse_lazy('apps.usuarios:iniciar_sesion')
+LOGIN_URL = reverse_lazy('apps.usuarios:iniciar_sesion')
 LOGIN_REDIRECT_URL = reverse_lazy('index')
 LOGOUT_REDIRECT_URL = reverse_lazy('index')
 
@@ -45,11 +45,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
                                 # Apps propias
-    "apps.comentarios",
-    "apps.destinos",
-    "apps.usuarios",
-    "apps.viajes",
+    'apps.comentarios',
+    'apps.destinos',
+    'apps.usuarios',
+    'apps.viajes',
+    'apps.contacto',
 ]
 
 MIDDLEWARE = [

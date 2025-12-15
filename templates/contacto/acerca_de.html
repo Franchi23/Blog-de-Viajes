@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+<title> Acerda de </title>
+{% endblock %}
+
+{% block navegacion %}
+    {% include 'navegacion.html' %}
+{% endblock %}
+
+{% block contenido %}
+<center>
+    <h2>Acera de </h2>
+    <p>Informacion sobre mi:</p>
+    <ul>
+        <li> Desarrollador: Francisco Santiago Muñoz </li>
+        <p style="text-align: justify;"> La idea original del desarrolo de este sitio 
+             era desarrollar una app para una empresa de turismo
+             que ofrece paquetes de viaje, tanto dentro de Argentina
+             como al exterior. Por falta de tiempo y conocimiento desarrolle
+             el blog de la agencia. La funcionalidad del mismo es que cada 
+             persona que haya realizado un viaje con la agencia pueda ingresar
+             y cargar imagenes y efectuar una breve reseña de lo vivido en su
+             viaje y las experiencias y lo que la agencia le brindo. Si cumplio
+             con todo, le falto tal prestacion que estaba pactada,etc.
+             Asi las demas personas pueden efectuar comentarios sobre el destino.
+             A medida que avance con los conocimientos necearios y sobre todo la
+             practica requerida, terminaré el sitio completo.
+             Muchas gracias. Saludos atte.</p>
+        <li>Francisco Santiago Muñoz - Etapa 2: Desarrollo Web Comisión  </li>       
+        </li>
+    </ul>
+</center>
+{% endblock %}
