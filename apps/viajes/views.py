@@ -11,13 +11,13 @@ from apps.comentarios.models import Comentario
 # Create your views here.
 class AgregarViaje(CreateView):
     model = Viaje
-    fields =['titulo','descripcion','imagen','destino','fecha_viaje',]
+    fields =['titulo','descripcion','imagen','destino','fecha_viaje','destacado']
     template_name= 'viajes/agregar_viaje.html'
     success_url = reverse_lazy('index')
 
 class ActualizarViaje(UpdateView):
     model = Viaje
-    fields =['titulo','descripcion','imagen','destino','fecha_viaje',]
+    fields =['titulo','descripcion','imagen','destino','fecha_viaje','destacado']
     template_name= 'viajes/agregar_viaje.html'
     success_url = reverse_lazy('index')
 
@@ -114,3 +114,28 @@ def leer_viaje(request, id):
          "comentario" : comentario
      }
      return render(request, template_name, context)
+
+
+#--------------- DESTACADOS
+
+def listar_destacados(request):
+    viaje = Viaje.objects.all()
+    destacados = Viaje.objects.filter(destacado = True)[:3]
+
+    template_name = "viajes/destacados.html"
+    context = {
+        'viaje' : viaje,
+        'destacados' : destacados
+    }
+    return render(request, template_name, context)
+
+def listar_destacados2(request):
+    viaje = Viaje.objects.all()
+    destacados = Viaje.objects.filter(destacado = True)[:3]
+
+    template_name = "viajes/destacados2.html"
+    context = {
+        'viaje' : viaje,
+        'destacados' : destacados
+    }
+    return render(request, template_name, context)

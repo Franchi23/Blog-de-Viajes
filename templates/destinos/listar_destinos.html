@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block titulo %}
-<title>Viajes</title>
+<title>Destinos</title>
 {% endblock %}
 
 {% block navegacion %}
@@ -19,12 +19,12 @@
     </form>
 
     <form method="GET" action="{% url 'apps.viajes:ordenar_por' %}">
-        <!--<button class="btn-primary" name="orden" type="submit" value="fecha">Ordenar por
+        <button class="btn-primary" name="orden" type="submit" value="fecha">Ordenar por
             Fecha</button>
         <button class="btn-primary" name="orden" type="submit" value="titulo">Ordenar por
             Viaje</button>
         <button class="btn-primary" name="orden" type="submit" value="destino">Ordenar por
-            Destino</button> -->
+            Destino</button>
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle dropdown-toggle" type="button" id="dropdownMenuButton"

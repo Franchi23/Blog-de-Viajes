@@ -1,11 +1,19 @@
 h1 a, h2 a {
-     color: #e9955a;
+     color: #080400;
      font-family: 'Lobster';
 }
 
 body {
     padding-left: 15px;
+    background-image: url("{% static 'img/fondo5.jpg' %}");
+    background-repeat: no-repeat; /* Evita que se repita */
+    background-size: cover;      /* Cubre toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-attachment: fixed;/* Fija la imagen al hacer scroll */
+    height: 100vh;               /* Asegura que ocupe toda la altura */
+    margin: 0;                   /* Elimina márgenes por defecto */
 }
+
 .page-header {
     background-color: #C25100;
     margin-top: 0;
@@ -13,7 +21,7 @@ body {
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
+    color: #07578d;
     font-size: 36pt;
     text-decoration: none;
 }
@@ -24,7 +32,7 @@ h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
 .date {
-    color: #828282;
+    color: #070707;
 }
 .save {
     float: right;
