@@ -36,7 +36,7 @@
               {% endif %} 
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url 'apps.destinos:agregar_destino' %}">Mostrar Destinos</a></li>
-                <li><a class="dropdown-item" href="{% url 'apps.destinos:listar_pais' %}">Mostrar Pises</a></li>
+                <li><a class="dropdown-item" href="{% url 'apps.destinos:listar_pais' %}">Mostrar Paises</a></li>
                 <li><a class="dropdown-item" href="{% url 'apps.destinos:listar_continentes' %}">Mostrar Continente</a></li>
                 <li><a class="dropdown-item" href="{% url 'apps.viajes:listar_viajes' %}">Ver Viajes</a></li>
           </ul>
@@ -47,6 +47,17 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'apps.contacto:acerca_de' %}">Acerca de</a>
         </li>
+        <li class="nav-item">
+          <a ></a>
+        </li>
+        <!-- MOSTRAR EL USUARIO -->
+        <ul class="navbar-nav">
+            {% if user.is_authenticated %}                   
+              <span class="navbar-text">
+                  Usuario: {{ user.username }}
+              </span>       
+            {% endif %}
+        </ul>
       </ul>
     </div>
   </div>

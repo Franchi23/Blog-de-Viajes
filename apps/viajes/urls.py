@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps.viajes.views import AgregarViaje,ActualizarViaje,ListarViajes,EliminarViaje,ordenar_por,listar_por_destino,listar_por_pais,leer_viaje
+from apps.viajes.views import AgregarViaje,ActualizarViaje,ListarViajes,EliminarViaje, listar_destacados2,ordenar_por,listar_por_destino,listar_por_pais,leer_viaje,listar_destacados
 
 app_name = "apps.viajes"
 
@@ -13,4 +13,6 @@ urlpatterns = [
     path('listar_por_pais/<str:pais>', listar_por_pais, name='listar_por_pais'),
     path('ordenar_por', ordenar_por , name='ordenar_por'),
     path('viaje/<int:id>', leer_viaje, name = 'viaje'),
+    path('listar_destacados/', listar_destacados, name='listar_destacados'),
+    path('listar_destacados2/', listar_destacados2, name='listar_destacados2'),
 ]

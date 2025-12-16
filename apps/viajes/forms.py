@@ -5,7 +5,7 @@ from apps.viajes.models import Viaje
 
 class ViajeForm(ModelForm):
     model = Viaje
-    fields =['titulo','descripcion','imagen','destino','fecha_viaje',]
+    fields =['titulo','descripcion','imagen','destino','fecha_viaje','destacado']
     widgets ={
         'fecha_viaje': DateInput(attrs = {'type': date}),
     }

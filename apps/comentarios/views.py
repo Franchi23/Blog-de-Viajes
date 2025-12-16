@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import UpdateView,DeleteView
 from django.urls import reverse_lazy
 
 from apps.comentarios.forms import ComentarioForm
 from apps.comentarios.models import Comentario
+from apps.viajes.models import Viaje
 
 # Create your views here.
 def agregar_comentario(request):
@@ -20,12 +21,13 @@ def agregar_comentario(request):
     return render(request,template_name, context)
 
 def listar_comentarios(request):
-    comentarios = Comentario.objects.all()
+    comentario = Comentario.objects.all()
     template_name = 'comentarios/listar_comentarios.html'
     context = {
-        'comentarios' : comentarios
+        'comentarios' : comentario
     }
     return render(request,template_name, context)
+
 
 class ModificarComentario(LoginRequiredMixin, UpdateView):
     model = Comentario

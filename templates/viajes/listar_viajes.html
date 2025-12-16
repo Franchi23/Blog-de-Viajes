@@ -19,7 +19,7 @@
     </form>
 
     <form method="GET" action="{% url 'apps.viajes:ordenar_por' %}">
-        <!--<button class="btn-primary" name="orden" type="submit" value="fecha">Ordenar por
+        <!-- <button class="btn-primary" name="orden" type="submit" value="fecha">Ordenar por
             Fecha</button>
         <button class="btn-primary" name="orden" type="submit" value="titulo">Ordenar por
             Viaje</button>
@@ -28,10 +28,10 @@
 
         <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-bs-toggle="dropdown" aria-expanded="false" name="orden" value="titulo">
+                data-bs-toggle="dropdown" aria-expanded="false" name="orden">
                 Ordenar por </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="?orden=fecha"   data-value="fecha">Ordenar por Fecha</a></li>
+                <li><a class="dropdown-item"  href="?orden=fecha"   data-value="fecha">Ordenar por Fecha</a></li>
                 <li><a class="dropdown-item" href="?orden=titulo"  data-value="titulo">Ordenar por Viaje</a></li>
                 <li><a class="dropdown-item" href="?orden=destino" data-value="destino">Ordenar por Destino</a></li>
             </ul>
